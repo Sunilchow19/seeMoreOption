@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #inner_div{
+            height: 600px;
+            width: 400px;
+            display: inline-block;
+            border: 2px solid;
+            border-radius: 10px;
+          
+            background-color:beige;
+            font-style: oblique;
+            text-align: center;
+            margin: 37px;
+            
+        }
+
+        img{
+            height: 100px;
+            width: 100px;
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+
+    <script>
+
+
+let dat=localStorage.getItem("details")
+let data=JSON.parse(dat);
+
+
+let div=document.createElement("div");
+div.setAttribute("id","inner_div")
+let id=document.createElement("h3");
+let title=document.createElement("h3");
+let price=document.createElement("h3");
+let desc=document.createElement("h3");
+let cat=document.createElement("h3");
+let rat=document.createElement("h3");
+let cou=document.createElement("h3");
+let im1=document.createElement("img");
+
+id.innerText=data["id"];
+title.innerText=data["title"];
+price.innerText=data["price"];
+desc.innerText=data["description"];
+cat.innerText=data["category"];
+rat.innerText=data["rating"]["rate"];
+cou.innerText=data["rating"]["count"];
+im1.setAttribute("src",data.image);
+
+div.append(id,im1,title,price,desc,cat,rat,cou)
+document.body.append(div)
+    </script>
+</body>
+</html>
